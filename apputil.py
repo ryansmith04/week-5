@@ -81,7 +81,7 @@ def family_groups():
 def visualize_families():
     """Create a Plotly chart of family size and fare statistics."""
     data = family_groups()
-    data["pclass"] = "Class " + data["pclass"].astype(str)    
+    data["pclass"] = "Class " + data["pclass"].astype(str)
     fig = px.bar(
         data,
         x="family_size",
