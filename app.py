@@ -28,3 +28,4 @@ fig2 = visualize_families()
 st.plotly_chart(fig2, use_container_width=True)
 st.write("The most common last names in the Titanic dataset are:")
 st.write(last_names().head(10))
+
