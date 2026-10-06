@@ -16,6 +16,7 @@ def load_titanic():
 
 
 def survival_demographics():
+    """Calculate Titanic survival statistics by class, sex, and age group."""
     df = load_titanic()
     df["age_group"] = pd.cut(
         df["age"],
@@ -35,6 +36,7 @@ def survival_demographics():
 
 
 def visualize_demographic():
+    """Create a Plotly chart of Titanic survival rates."""
     data = survival_demographics()
     fig = px.bar(
         data,
@@ -55,6 +57,7 @@ def visualize_demographic():
 
 
 def family_groups():
+    """Calculate passenger counts and fare statistics by family size and class."""
     df = load_titanic()
     df["family_size"] = (
         df["sibsp"] + df["parch"] + 1
@@ -76,6 +79,7 @@ def family_groups():
 
 
 def visualize_families():
+    """Create a Plotly chart of family size and fare statistics."""
     data = family_groups()
     data["pclass"] = "Class " + data["pclass"].astype(str)    
     fig = px.bar(
@@ -95,6 +99,7 @@ def visualize_families():
 
 
 def last_names():
+    """Return counts of passengers by last name."""
     df = load_titanic()
     last_names = df["name"].str.split(",").str[0]
     return last_names.value_counts()
