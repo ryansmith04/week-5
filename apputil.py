@@ -98,3 +98,4 @@ def last_names():
     df = load_titanic()
     last_names = df["name"].str.split(",").str[0]
     return last_names.value_counts()
+    
